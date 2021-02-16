@@ -1,0 +1,17 @@
+<h2>Login</h2>
+<div class="row" style="margin: 5%;">
+  <div class="col-md-6">
+    <div *ngIf="!isLoading" style="color:red;"> <p>{{this.error}}  </p></div>
+    <form #loginForm="ngForm" (submit)="onLogin(loginForm)"  *ngIf="!isLoading">
+      <div class="form-group">
+        <input  name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
+        <div *ngIf="emailInput.invalid">Please enter a valid email.</div>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" ngModel  placeholder="Password" #passwordInput="ngModel" required>
+        <div *ngIf="passwordInput.invalid">Please enter a valid password.</div>
+      </div>
+      <button class="btn btn-lg btn-primary" color="accent" type="submit">Login</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+
+<div class="row" style="margin: 10%;">
+  <div class="col-md-6">
+    <h2>Sign Up</h2>
+    <div *ngIf="!isLoading" style="color:red;"> <p>{{this.error}}  </p></div>
+    <form #signup="ngForm" (submit)="onSignup(signup)"  *ngIf="!isLoading">
+      <div class="form-group">
+        <input  name="fname" ngModel type="text" placeholder="First Name" #fnameInput="ngModel" required>
+        <div *ngIf="fnameInput.invalid">Please enter a First Name.</div>
+      </div>
+      <div class="form-group">
+        <input  name="lname" ngModel type="text" placeholder="Last Name" #lnameInput="ngModel" required>
+        <div *ngIf="emailInput.invalid">Please enter a Last Name.</div>
+      </div>
+      <div class="form-group">
+        <input  name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
+        <div *ngIf="emailInput.invalid">Please enter a valid email.</div>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" ngModel  placeholder="Password" #passwordInput="ngModel" required>
+        <div *ngIf="passwordInput.invalid">Please enter a valid password.</div>
+      </div>
+      <button color="accent" type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+
